@@ -26,8 +26,9 @@ export function setupApp(element) {
       </div>
     </nav>
 
+    <main id="main-content">
     <!-- HERO -->
-    <section class="hero" id="heroSection">
+    <section class="hero" id="heroSection" aria-label="כותרת ראשית">
       <div class="hero__bg" id="heroBg">
         <div class="hero__grid-lines"></div>
         <div class="hero__orb hero__orb--1"></div>
@@ -203,7 +204,7 @@ export function setupApp(element) {
               <span></span><span></span><span></span><span></span>
             </div>
             <div class="blueprint__icon">
-              <img src="/easybim_icon-b.png" alt="EasyBIM Icon" />
+              <img src="/easybim_icon-b.png" alt="" aria-hidden="true" />
             </div>
           </div>
         </div>
@@ -369,14 +370,14 @@ export function setupApp(element) {
             בין אם אתם מתחילים פרויקט חדש או מחפשים להביא תיאום BIM לפרויקט קיים — נשמח לשמוע מכם.
           </p>
           <div class="contact__details">
-            <a href="mailto:office@easybim.co.il" class="contact__link">
+            <a href="mailto:office@easybim.co.il" class="contact__link" aria-label="שלח מייל ל-office@easybim.co.il">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M2 7L12 13L22 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
               </svg>
               office@easybim.co.il
             </a>
-            <a href="https://www.easybim.co.il" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <a href="https://www.easybim.co.il" target="_blank" rel="noopener noreferrer" class="contact__link" aria-label="פתח את אתר החברה www.easybim.co.il בחלון חדש">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
                 <path d="M2 12H22M12 2C9.33 6 8 9 8 12C8 15 9.33 18 12 22M12 2C14.67 6 16 9 16 12C16 15 14.67 18 12 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -422,6 +423,7 @@ export function setupApp(element) {
         </form>
       </div>
     </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
