@@ -52,6 +52,14 @@ export function setupApp(element) {
           <div class="bim-beam bim-beam--v2"></div>
         </div>
       </div>
+      <div class="hero__lottie" aria-hidden="true">
+        <dotlottie-player
+          src="https://lottie.host/0550b0e3-4dda-4f63-8f00-54b19675a7b0/hN0buXl5dD.lottie"
+          autoplay
+          loop
+          style="width:100%;height:100%;"
+        ></dotlottie-player>
+      </div>
       <div class="hero__content">
         <p class="hero__eyebrow reveal">מידול מידע בנייה — BIM</p>
         <h1 class="hero__title reveal reveal--delay-1">

@@ -413,6 +413,34 @@ a {
   flex-wrap: wrap;
 }
 
+.hero__lottie {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 28vw, 420px);
+  height: clamp(220px, 28vw, 420px);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .hero__lottie {
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    top: auto;
+    bottom: 80px;
+    transform: translateX(-50%);
+    opacity: 0.55;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__lottie { display: none; }
+}
+
 .hero__scroll-hint {
   position: absolute;
   bottom: 40px;
