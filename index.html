@@ -15,5 +15,23 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script src="/finisher-header.es5.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        new FinisherHeader({
+          "count": 14,
+          "size": { "min": 1388, "max": 1500, "pulse": 0.2 },
+          "speed": { "x": { "min": 0.6, "max": 3 }, "y": { "min": 0.6, "max": 3 } },
+          "colors": {
+            "background": "#1e248c",
+            "particles": ["#44b8d3", "#1e248c"]
+          },
+          "blending": "lighten",
+          "opacity": { "center": 0.6, "edge": 0 },
+          "skew": 0,
+          "shapes": ["c"]
+        });
+      });
+    </script>
   </body>
 </html>

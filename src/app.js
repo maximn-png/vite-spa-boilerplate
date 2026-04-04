@@ -27,7 +27,7 @@ export function setupApp(element) {
     </nav>
 
     <!-- HERO -->
-    <section class="hero" id="heroSection">
+    <section class="hero finisher-header" id="heroSection">
       <div class="hero__bg" id="heroBg">
         <div class="hero__grid-lines"></div>
         <div class="hero__orb hero__orb--1"></div>

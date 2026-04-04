@@ -311,7 +311,6 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--gradient-hero);
 }
 
 .hero__bg {
@@ -319,6 +318,7 @@ a {
   inset: 0;
   pointer-events: none;
   will-change: transform;
+  z-index: 0;
 }
 
 .hero__grid-lines {
