@@ -27,11 +27,30 @@ export function setupApp(element) {
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero__bg">
+    <section class="hero" id="heroSection">
+      <div class="hero__bg" id="heroBg">
         <div class="hero__grid-lines"></div>
         <div class="hero__orb hero__orb--1"></div>
         <div class="hero__orb hero__orb--2"></div>
+      </div>
+      <!-- BIM building animation -->
+      <div class="hero__bim-anim" aria-hidden="true">
+        <div class="bim-model">
+          <div class="bim-floor bim-floor--1"></div>
+          <div class="bim-floor bim-floor--2"></div>
+          <div class="bim-floor bim-floor--3"></div>
+          <div class="bim-floor bim-floor--4"></div>
+          <div class="bim-floor bim-floor--5"></div>
+          <div class="bim-floor bim-floor--6"></div>
+          <div class="bim-node bim-node--a"></div>
+          <div class="bim-node bim-node--b"></div>
+          <div class="bim-node bim-node--c"></div>
+          <div class="bim-node bim-node--d"></div>
+          <div class="bim-beam bim-beam--h1"></div>
+          <div class="bim-beam bim-beam--h2"></div>
+          <div class="bim-beam bim-beam--v1"></div>
+          <div class="bim-beam bim-beam--v2"></div>
+        </div>
       </div>
       <div class="hero__content">
         <p class="hero__eyebrow reveal">מידול מידע בנייה — BIM</p>
@@ -40,7 +59,7 @@ export function setupApp(element) {
           <span class="hero__title-gradient">עתיד ה-BIM</span>
         </h1>
         <p class="hero__subtitle reveal reveal--delay-2">
-          EasyBIM הופכת פרויקטי בנייה מורכבים למודלים דיגיטליים מדויקים ומתואמים —<br class="br-desktop" />
+          איזיבים הופכת פרויקטי בנייה מורכבים למודלים דיגיטליים מדויקים ומתואמים —<br class="br-desktop" />
           המספקים דיוק, יעילות ובהירות לאורך כל שלבי הפרויקט.
         </p>
         <div class="hero__actions reveal reveal--delay-3">
@@ -181,10 +200,10 @@ export function setupApp(element) {
           </div>
         </div>
         <div class="about__content">
-          <p class="section-eyebrow reveal">אודות EasyBIM</p>
+          <p class="section-eyebrow reveal">אודות איזיבים</p>
           <h2 class="section-title reveal reveal--delay-1">הנדסה חדשנית,<br/>בנויה על דיוק</h2>
           <p class="about__text reveal reveal--delay-2">
-            EasyBIM הנדסה חדשנית בע"מ היא חברת ייעוץ BIM מובילה, המחויבת לשנות את האופן שבו פרויקטי בנייה מתוכננים, מתואמים ומבוצעים.
+            איזיבים הנדסה חדשנית בע"מ היא חברת ייעוץ BIM מובילה, המחויבת לשנות את האופן שבו פרויקטי בנייה מתוכננים, מתואמים ומבוצעים.
             אנו משלבים מומחיות טכנית עמוקה עם טכנולוגיית BIM מתקדמת כדי לספק ללקוחותינו דיוק ויעילות ללא תחרות.
           </p>
           <p class="about__text reveal reveal--delay-2">
@@ -208,8 +227,8 @@ export function setupApp(element) {
     <section class="why">
       <div class="why__inner">
         <div class="section-header reveal">
-          <p class="section-eyebrow">למה EasyBIM</p>
-          <h2 class="section-title">היתרון של EasyBIM</h2>
+          <p class="section-eyebrow">למה איזיבים</p>
+          <h2 class="section-title">היתרון של איזיבים</h2>
         </div>
         <div class="why__grid">
           <div class="why-item reveal">
@@ -246,66 +265,79 @@ export function setupApp(element) {
         </div>
         <div class="projects__grid">
           <div class="project-card project-card--large reveal">
-            <div class="project-card__bg project-card__bg--1"></div>
+            <img src="/project-afeka-residential.jpg" alt="אפקה 61 - מגורים" class="project-card__img" />
             <div class="project-card__content">
               <span class="project-card__type">מגורים</span>
-              <h3 class="project-card__title">מגדל יוקרה</h3>
-              <p class="project-card__desc">תיאום BIM מלא על פני 42 קומות — אדריכלות, קונסטרוקציה ומערכות. תסופק ב-LOD 400.</p>
+              <h3 class="project-card__title">אפקה 61 — מגורים</h3>
+              <p class="project-card__desc">תיאום BIM מלא — אדריכלות, קונסטרוקציה ומערכות, בהתאם לתקני LOD 400.</p>
               <div class="project-card__meta">
                 <span>תל אביב</span>
-                <span>2024</span>
                 <span>LOD 400</span>
               </div>
             </div>
           </div>
           <div class="project-card reveal reveal--delay-1">
-            <div class="project-card__bg project-card__bg--2"></div>
+            <img src="/project-hotel-caesarea.jpg" alt="מלון גולף קיסריה" class="project-card__img" />
             <div class="project-card__content">
-              <span class="project-card__type">מסחרי</span>
-              <h3 class="project-card__title">קמפוס עסקים</h3>
-              <p class="project-card__desc">קומפלקס משרדים רב-בנייני עם זיהוי התנגשויות מלא ואינטגרציית עלויות 5D.</p>
+              <span class="project-card__type">אירוח ותיירות</span>
+              <h3 class="project-card__title">מלון גולף קיסריה</h3>
+              <p class="project-card__desc">מידול BIM לאתר נופש עם תיאום מערכות ועיצוב אדריכלי מורכב.</p>
               <div class="project-card__meta">
-                <span>הרצליה</span>
-                <span>2023</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card reveal reveal--delay-2">
-            <div class="project-card__bg project-card__bg--3"></div>
-            <div class="project-card__content">
-              <span class="project-card__type">תשתיות</span>
-              <h3 class="project-card__title">מרכז תחבורה</h3>
-              <p class="project-card__desc">תשתית תת-קרקעית מורכבת שמודלה לפי תקן ISO 19650 עבור רשות התחבורה הציבורית.</p>
-              <div class="project-card__meta">
-                <span>ירושלים</span>
-                <span>2024</span>
+                <span>קיסריה</span>
               </div>
             </div>
           </div>
           <div class="project-card reveal">
-            <div class="project-card__bg project-card__bg--4"></div>
+            <img src="/project-hospital-sheba.jpg" alt="בית חולים שיבא" class="project-card__img" />
             <div class="project-card__content">
               <span class="project-card__type">בריאות</span>
-              <h3 class="project-card__title">מרכז רפואי</h3>
+              <h3 class="project-card__title">בית חולים שיבא</h3>
               <p class="project-card__desc">BIM לבית חולים עם תיאום מערכות מפורט וחבילת העברה לניהול מתקנים.</p>
               <div class="project-card__meta">
-                <span>חיפה</span>
-                <span>2023</span>
+                <span>תל השומר</span>
               </div>
             </div>
           </div>
           <div class="project-card reveal reveal--delay-1">
-            <div class="project-card__bg project-card__bg--5"></div>
+            <img src="/project-arena-basketball.jpg" alt="ארנה כדורסל" class="project-card__img" />
             <div class="project-card__content">
-              <span class="project-card__type">תעשייה</span>
-              <h3 class="project-card__title">מתקן תעשייתי</h3>
-              <p class="project-card__desc">מפעל ייצור בקנה מידה גדול עם מערכות פלדה קונסטרוקטיבית ומערכות מכניות מורכבות.</p>
+              <span class="project-card__type">ספורט ובידור</span>
+              <h3 class="project-card__title">ארנה כדורסל</h3>
+              <p class="project-card__desc">מידול BIM לאולם ספורט מורכב עם קונסטרוקציית פלדה ומערכות מתקדמות.</p>
               <div class="project-card__meta">
-                <span>באר שבע</span>
-                <span>2024</span>
+                <span>ישראל</span>
               </div>
             </div>
           </div>
+          <div class="project-card reveal reveal--delay-2">
+            <img src="/project-metro-m3.jpg" alt="מטרו קו M3" class="project-card__img" />
+            <div class="project-card__content">
+              <span class="project-card__type">תשתיות</span>
+              <h3 class="project-card__title">מטרו קו M3</h3>
+              <p class="project-card__desc">תשתית תת-קרקעית מורכבת שמודלה לפי תקן ISO 19650 עבור רשות התחבורה.</p>
+              <div class="project-card__meta">
+                <span>גוש דן</span>
+                <span>ISO 19650</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card reveal reveal--delay-1">
+            <img src="/project-galilee-residential.jpg" alt="נוף נגליל מול תבור - מגורים" class="project-card__img" />
+            <div class="project-card__content">
+              <span class="project-card__type">מגורים</span>
+              <h3 class="project-card__title">נוף הגליל — תבור</h3>
+              <p class="project-card__desc">פרויקט מגורים בנוף הגליל עם מידול BIM מדויק ותיאום מלא בין הדיסציפלינות.</p>
+              <div class="project-card__meta">
+                <span>גליל</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects__more reveal">
+          <a href="https://drive.google.com/file/d/1322QDbVICUycebdyV6kk0euJZQjoDLjT/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            לפרויקטים נוספים ופרופיל החברה המלא
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M4 10H16M10 4L16 10L10 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
     </section>
@@ -314,7 +346,7 @@ export function setupApp(element) {
     <section class="cta-banner">
       <div class="cta-banner__inner reveal">
         <h2 class="cta-banner__title">מוכנים להפוך את<br/>הפרויקט הבא שלכם?</h2>
-        <p class="cta-banner__sub">בואו נדבר על האופן שבו EasyBIM יכולה להביא דיוק ויעילות לפרויקט הבנייה שלכם.</p>
+        <p class="cta-banner__sub">בואו נדבר על האופן שבו איזיבים יכולה להביא דיוק ויעילות לפרויקט הבנייה שלכם.</p>
         <a href="#contact" class="btn btn--white">התחילו שיחה</a>
       </div>
     </section>
@@ -418,7 +450,7 @@ export function setupApp(element) {
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2025 EasyBIM הנדסה חדשנית בע"מ. כל הזכויות שמורות.</p>
+        <p>&copy; 2025 איזיבים הנדסה חדשנית בע"מ. כל הזכויות שמורות.</p>
       </div>
     </footer>
   `
@@ -427,6 +459,7 @@ export function setupApp(element) {
   initNav()
   initForm()
   initSmoothScroll()
+  initParallax()
 }
 
 function initScrollEffects() {
@@ -480,6 +513,17 @@ function initForm() {
     form.reset()
     setTimeout(() => success.classList.remove('is-visible'), 5000)
   })
+}
+
+function initParallax() {
+  const bg = document.getElementById('heroBg')
+  const bimAnim = document.querySelector('.hero__bim-anim')
+  if (!bg) return
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY
+    bg.style.transform = `translateY(${y * 0.35}px)`
+    if (bimAnim) bimAnim.style.transform = `translateY(${y * 0.18}px)`
+  }, { passive: true })
 }
 
 function initSmoothScroll() {

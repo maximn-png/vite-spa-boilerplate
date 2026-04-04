@@ -318,6 +318,7 @@ a {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  will-change: transform;
 }
 
 .hero__grid-lines {
@@ -434,6 +435,101 @@ a {
   50% { transform: scaleY(1); transform-origin: top; }
   51% { transform: scaleY(1); transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ============================================================
+   BIM ANIMATION
+   ============================================================ */
+.hero__bim-anim {
+  position: absolute;
+  left: 4%;
+  bottom: 8%;
+  width: 220px;
+  height: 260px;
+  z-index: 2;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 0.65;
+}
+
+.bim-model {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bim-floor {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  height: 28px;
+  border: 1.5px solid var(--teal);
+  border-radius: 3px;
+  background: rgba(68,184,211,0.06);
+  opacity: 0;
+  animation: bimRise 0.5s ease forwards;
+}
+
+.bim-floor--1 { bottom: 0;   animation-delay: 0.3s; }
+.bim-floor--2 { bottom: 38px;  animation-delay: 0.6s; }
+.bim-floor--3 { bottom: 76px;  animation-delay: 0.9s; }
+.bim-floor--4 { bottom: 114px; animation-delay: 1.2s; }
+.bim-floor--5 { bottom: 152px; animation-delay: 1.5s; }
+.bim-floor--6 { bottom: 190px; animation-delay: 1.8s; }
+
+@keyframes bimRise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Repeating pulse to keep animation alive */
+.bim-floor--1 { animation: bimRise 0.5s 0.3s ease forwards, bimPulse 4s 2.5s ease-in-out infinite; }
+.bim-floor--2 { animation: bimRise 0.5s 0.6s ease forwards, bimPulse 4s 2.8s ease-in-out infinite; }
+.bim-floor--3 { animation: bimRise 0.5s 0.9s ease forwards, bimPulse 4s 3.1s ease-in-out infinite; }
+.bim-floor--4 { animation: bimRise 0.5s 1.2s ease forwards, bimPulse 4s 3.4s ease-in-out infinite; }
+.bim-floor--5 { animation: bimRise 0.5s 1.5s ease forwards, bimPulse 4s 3.7s ease-in-out infinite; }
+.bim-floor--6 { animation: bimRise 0.5s 1.8s ease forwards, bimPulse 4s 4.0s ease-in-out infinite; }
+
+@keyframes bimPulse {
+  0%, 100% { background: rgba(68,184,211,0.06); border-color: rgba(68,184,211,0.7); }
+  50%       { background: rgba(68,184,211,0.18); border-color: rgba(68,184,211,1);   }
+}
+
+.bim-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: nodeAppear 0.3s ease forwards;
+  opacity: 0;
+}
+
+.bim-node--a { left: 20px;  bottom: 218px; animation-delay: 2.2s; }
+.bim-node--b { right: 20px; bottom: 218px; animation-delay: 2.3s; }
+.bim-node--c { left: 20px;  bottom: 0;     animation-delay: 2.4s; }
+.bim-node--d { right: 20px; bottom: 0;     animation-delay: 2.5s; }
+
+@keyframes nodeAppear {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.bim-beam {
+  position: absolute;
+  background: rgba(68,184,211,0.5);
+  opacity: 0;
+  animation: beamDraw 0.4s ease forwards;
+}
+
+.bim-beam--h1 { left: 20px; right: 20px; bottom: 222px; height: 1.5px; animation-delay: 2.6s; }
+.bim-beam--h2 { left: 20px; right: 20px; bottom: 4px;   height: 1.5px; animation-delay: 2.7s; }
+.bim-beam--v1 { left: 24px; bottom: 4px; top: 36px;      width: 1.5px;  animation-delay: 2.8s; }
+.bim-beam--v2 { right: 24px; bottom: 4px; top: 36px;     width: 1.5px;  animation-delay: 2.9s; }
+
+@keyframes beamDraw {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ============================================================
@@ -763,7 +859,6 @@ a {
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
   gap: 20px;
 }
 
@@ -777,6 +872,7 @@ a {
   justify-content: flex-end;
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
+  background: #0d1a3a;
 }
 
 .project-card--large {
@@ -786,52 +882,28 @@ a {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
-.project-card__bg {
+.project-card__img {
   position: absolute;
   inset: 0;
-  transition: transform var(--transition);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
-.project-card:hover .project-card__bg {
-  transform: scale(1.04);
-}
-
-.project-card__bg--1 {
-  background: linear-gradient(135deg, #0d1a3a 0%, #1e248c 50%, #44b8d3 100%);
-}
-.project-card__bg--2 {
-  background: linear-gradient(135deg, #1a0d2e 0%, #2c1e5c 50%, #44b8d3 100%);
-}
-.project-card__bg--3 {
-  background: linear-gradient(135deg, #0a2030 0%, #0d3a50 50%, #1e248c 100%);
-}
-.project-card__bg--4 {
-  background: linear-gradient(135deg, #0d2a1a 0%, #0f4030 50%, #44b8d3 100%);
-}
-.project-card__bg--5 {
-  background: linear-gradient(135deg, #2a1a0d 0%, #3a2a1a 50%, #1e248c 100%);
-}
-
-/* Grid pattern overlay on project cards */
-.project-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(68,184,211,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(68,184,211,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: 1;
+.project-card:hover .project-card__img {
+  transform: scale(1.07);
 }
 
 .project-card__content {
   position: relative;
   z-index: 2;
   padding: 28px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
 }
 
 .project-card--large .project-card__content {
@@ -867,7 +939,7 @@ a {
 
 .project-card__desc {
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.72);
   margin-bottom: 16px;
   line-height: 1.6;
 }
@@ -880,7 +952,7 @@ a {
 
 .project-card__meta span {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.45);
   font-weight: 500;
   letter-spacing: 0.05em;
 }
@@ -889,6 +961,17 @@ a {
   content: '·';
   margin-left: 16px;
   color: rgba(255,255,255,0.2);
+}
+
+.projects__more {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.projects__more .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* ============================================================
@@ -1153,6 +1236,24 @@ a {
 }
 
 /* ============================================================
+   SECTION HEADING ENHANCEMENTS
+   ============================================================ */
+.section-title {
+  font-family: var(--font-main);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+}
+
+.why .section-title,
+.cta-banner__title {
+  letter-spacing: -0.03em;
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
@@ -1218,6 +1319,10 @@ a {
   :root {
     --nav-height: 60px;
     --section-pad: 72px;
+  }
+
+  .hero__bim-anim {
+    display: none;
   }
 
   .nav__links {
